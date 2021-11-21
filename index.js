@@ -2,16 +2,14 @@
 let rita = require('rita');
 let rawdict = require('./dictionary.json');
 
-let dict = {}; //[n, a, v, adv, prep, interj, conj, pron]
+let dict = {}; //[n, a, v, r -> prep, interj, conj, pron]
 rawdict.forEach((o, i) => {
   if (o.pos === 'adv.') o.pos = 'r.'; // 
   if (!/^[anvr]\.$/.test(o.pos)) return;
-  let key = (o.word + '$' + o.pos.slice(0, 1)).toLowerCase(); // WORD$POS
+  let key = (o.word + '$' + o.pos.slice(0, 1)).toLowerCase(); // word$pos
   dict[key] = { defs: o.definitions, pos: o.pos };
 });
-//console.log(dict.fish$n);
-//console.log(dict.FISH.V);
-//process.exit();
+//console.log(dict.fish$n); process.exit();
 
 let text = "A CARAFE, THAT IS A BLIND GLASS.\n A kind in glass and a cousin, a spectacle and nothing strange a single hurt color and an arrangement in a system to pointing. All this and not ordinary, not unordered in not resembling. The difference is spreading.";
 text = "Then, while the old man was clearing the lines and preparing the harpoon, the male fish jumped high into the air beside the boat to see where the female was and then went down deep, his lavender wings, that were his pectoral fins, spread wide and all his wide lavender stripes showing. He was beautiful, the old man remembered, and he had stayed.";
@@ -57,4 +55,3 @@ words.forEach((w, i) => {
 });
 let output = rita.untokenize(words);
 console.log('\n',output);
-process.exit();
