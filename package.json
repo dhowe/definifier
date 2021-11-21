@@ -1,0 +1,20 @@
+{
+  "name": "definifier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhowe/definifier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rita": "^2.4.501",
+    "node-wordnet": "^0.1.12",
+    "wndb-with-exceptions": "^3.0.2"
+  }
+}
